@@ -45,3 +45,6 @@
 
 ---
 - **User can give comment/s to any event.**
+
+## Technology stack used:
+ Asp .net MVC 5.0, Entity framework core, Sql server
