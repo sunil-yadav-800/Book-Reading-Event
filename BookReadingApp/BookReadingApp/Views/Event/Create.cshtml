@@ -1,0 +1,63 @@
+﻿@model Event
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Create New Event</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        @*<div class="mb-3">
+            <label asp-for="Date"></label>
+            <input asp-for="Date" class="form-control" />
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>*@
+        <div class="mb-3">
+            <label asp-for="Location"></label>
+            <input asp-for="Location" class="form-control" />
+            <span asp-validation-for="Location" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="StartTime"></label>
+            <input asp-for="StartTime" class="form-control" />
+            <span asp-validation-for="StartTime" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="EventType"></label>
+            @*<input asp-for="EventType" class="form-control" />*@
+            <select class="form-control" asp-for="EventType" asp-items="Html.GetEnumSelectList<EventType>()"></select>
+            <span asp-validation-for="EventType" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Duration"></label>
+            <input asp-for="Duration" class="form-control" />
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Discription"></label>
+            <input asp-for="Discription" class="form-control" />
+            <span asp-validation-for="Discription" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Others"></label>
+            <input asp-for="Others" class="form-control" />
+            <span asp-validation-for="Others" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="InviteByEmail"></label>
+            <input asp-for="InviteByEmail" class="form-control" />
+            <span asp-validation-for="InviteByEmail" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+        &nbsp;
+        <a asp-controller="Event" asp-action="Index" class="btn btn-secondary" style="width:150px">Back To List</a>
+    </div>
+</form>
+@section scripts{ 
+ <partial name="_ValidationScriptsPartial" />
+}

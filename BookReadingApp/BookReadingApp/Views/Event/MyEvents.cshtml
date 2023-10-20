@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Event>
+<div class="container">
+    <h5>My Events</h5>
+    <div class="row pt-2">
+        <table class="table-bordered table-striped" style="width:30%">
+            <thead>
+                <tr>
+                    <th>Title of Events</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var inv in Model)
+                {
+                    <tr>
+                        <td><a asp-controller="Event" asp-action="ViewHome" asp-route-id="@inv.Id">@inv.Title</a></td>
+                        @if (inv.Date > DateTime.Now)
+                        {
+                        <td><a asp-controller="Event" asp-action="EditMyEvent" asp-route-id="@inv.Id">Edit</a></td>
+                        }
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

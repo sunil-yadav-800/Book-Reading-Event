@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAx2zVXeIMVEWjC+DEV2J3DAAAAAACAAAAAAADZgAAwAAAABAAAAAYLCuBXgNfAEfSVAAkEumKAAAAAASAAACgAAAAEAAAAHH22kRK6gIix84Ua1pYYdmAAAAAiXAiI0CirOmMq+99MR6hegpin0rfdCs3eqDZrwxX1UzcGj9eb2aCqmFgBPVE7+s2+PKJ3LTrXarbRtASUkVXkw8biJ65Y7qYEWtmAaGU4YTJwH1oslN2Ig+R27I/r/gNSKAQkro0EBXLOmLzC1s25TVoZpQoWlunHp4pbVBkwscUAAAA6Lyq5GSiXcZ+yCjs7Lmap1gmSAo=</EncryptedPassword>
+    <History>True|2022-03-21T13:15:37.9055783Z;True|2022-03-21T18:26:01.6472146+05:30;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="Default">
+      <Value>Server=tcp:bookeventserver.database.windows.net,1433%3bInitial Catalog=Book_db%3bPersist Security Info=False%3bUser ID=admin-sql%3bPassword=Book%40800%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

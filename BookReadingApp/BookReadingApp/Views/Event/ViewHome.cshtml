@@ -1,0 +1,56 @@
+﻿@model EventViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    Details of the event
+                </div>
+                <div class="card-body">
+                    <pre><b>Title                 :</b> @Model.Title</pre>
+                    <pre><b>Start Time            :</b> @Model.StartTime</pre>
+                    <pre><b>Location              :</b> @Model.Location</pre>
+                    <pre><b>Duration              :</b> @Model.Duration</pre>
+                    <pre><b>Description           :</b> @Model.Description</pre>
+                    <pre><b>Others details        :</b> @Model.Others</pre>
+                    <pre><b>Total Invited to Event:</b> @Model.TotalInvited</pre>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 pt-2">
+            <h6>Comment</h6>
+            <form method="post">
+                <textarea name="comment" placeholder="Comment"></textarea><br /><br />
+                <button type="submit" class="btn btn-primary" asp-route-eventId="@Model.EventId">comment</button>
+            </form>
+        </div>
+    </div>
+    <hr class="pt-2" />
+    <h6> All Past Comments</h6>
+    <div class="row ">
+        <table class="table-bordered">
+            <thead>
+            </thead>
+            <tbody>
+                @foreach (var comment in Model.PastComments)
+                {
+                    <tr>
+                        <td>
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Comment By:-</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">@comment.userName</h6>
+                                    <p class="card-text">@comment.message</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <br />
+    <br />
+    <a asp-controller="Event" asp-action="Index">Back to Home</a>
+</div>
