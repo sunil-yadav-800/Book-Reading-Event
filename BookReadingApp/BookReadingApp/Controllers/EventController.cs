@@ -20,15 +20,30 @@ namespace BookReadingApp.Controllers
         }
         public IActionResult Index()
         {
-            var allEvents = _db.Events.Where(u=>u.EventType == 0);
-            var upcoming = allEvents.Where(u => u.StartTime > DateTime.Now).ToList();
-            var past = allEvents.Where(u => u.StartTime < DateTime.Now).ToList();
-            var AllEvents = new PastUpcomingEventsDTO()
+            if(User.Identity.IsAuthenticated)
             {
-                UpcomingEvents = upcoming,
-                PastEvents = past 
-            };
-            return View(AllEvents);
+                var allEvents = _db.Events.Where(u => u.EventType == EventType.Public || u.EventType == EventType.Private);
+                var upcoming = allEvents.Where(u => u.StartTime > DateTime.Now).ToList();
+                var past = allEvents.Where(u => u.StartTime < DateTime.Now).ToList();
+                var AllEvents = new PastUpcomingEventsDTO()
+                {
+                    UpcomingEvents = upcoming,
+                    PastEvents = past
+                };
+                return View(AllEvents);
+            }
+            else
+            {
+                var allEvents = _db.Events.Where(u => u.EventType == EventType.Public);
+                var upcoming = allEvents.Where(u => u.StartTime > DateTime.Now).ToList();
+                var past = allEvents.Where(u => u.StartTime < DateTime.Now).ToList();
+                var AllEvents = new PastUpcomingEventsDTO()
+                {
+                    UpcomingEvents = upcoming,
+                    PastEvents = past
+                };
+                return View(AllEvents);
+            }
         }
         [Authorize]
         public IActionResult Create()
