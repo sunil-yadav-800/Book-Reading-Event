@@ -53,7 +53,7 @@ namespace BookReadingApp
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -61,6 +61,12 @@ namespace BookReadingApp
             app.UseAuthentication();
             app.UseAuthorization();
             
+            // Apply any pending migrations at startup
+            // using (var scope = app.ApplicationServices.CreateScope())
+            // {
+            //     var context = scope.ServiceProvider.GetRequiredService<DataContext>();
+            //     context.Database.Migrate();  // This will apply any migrations and create the database if it doesn't exist.
+            // }
 
             app.UseEndpoints(endpoints =>
             {

@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /app
 
 # Copy the .csproj file to the working directory
-COPY BookReadingApp.csproj ./
+COPY ./BookReadingApp/BookReadingApp.csproj ./
 
 # Restore dependencies
 RUN dotnet restore 

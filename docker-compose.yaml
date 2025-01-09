@@ -1,0 +1,32 @@
+services:
+  db:
+    container_name: db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - 8081:1433
+    networks:
+      - app
+    volumes:
+      - db-data:/var/opt/mssql/data
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "MyPassword1234"
+    
+  bookreadingapp:
+    ports:
+      - 8080:80
+    container_name: bookreadingapp
+    build:
+      context: ./BookReadingApp
+      dockerfile: Dockerfile
+    networks:
+      - app
+    depends_on:
+      - db
+
+networks:
+  app:
+    driver: bridge
+
+volumes:
+  db-data:
